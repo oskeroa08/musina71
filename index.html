@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Ремонт стиральных машин Казань, ремонт бойлеров и ремонт духовок. Выезд мастера до 23:00, ежедневно. Мусина 71.">
+  <title>Ремонт стиральных машин, бойлеров и духовок в Казани — выезд до 23:00, ежедневно | Мусина, 71</title>
+  <style>
+    :root {
+      --white: #fff;
+      --surface: #f8fafc;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --orange: #ea580c;
+      --orange-hover: #c2410c;
+      --blue: #2563eb;
+      --green: #15803d;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(15,23,42,.08);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--white);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible,summary:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 4px;
+    }
+    svg { display: block; }
+    .container { width: min(1120px,calc(100% - 36px)); margin-inline: auto; }
+    .section { padding: 64px 0; }
+    .soft { background: var(--surface); }
+    .heading { max-width: 700px; margin: 0 auto 34px; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-bottom: 12px; color: var(--orange);
+      font-size: .76rem; font-weight: 850; letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: ""; width: 7px; height: 7px;
+      border-radius: 50%; background: currentColor;
+    }
+    h1,h2,h3,p { margin-top: 0; }
+    h1 {
+      max-width: 780px; margin-bottom: 20px;
+      font-size: clamp(2.15rem,7vw,4.25rem);
+      line-height: 1.07; letter-spacing: -.055em;
+    }
+    h1 em { color: var(--orange); font-style: normal; }
+    h2 {
+      margin-bottom: 12px; font-size: clamp(1.8rem,5vw,2.7rem);
+      line-height: 1.15; letter-spacing: -.04em;
+    }
+    h3 { line-height: 1.3; letter-spacing: -.02em; }
+    .heading p,.muted { color: var(--muted); }
+    .heading p { margin-bottom: 0; }
+    .header {
+      position: sticky; top: 0; z-index: 20;
+      border-bottom: 1px solid rgba(226,232,240,.9);
+      background: rgba(255,255,255,.96);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+    .header-inner {
+      min-height: 72px; display: flex; align-items: center;
+      justify-content: space-between; gap: 12px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; min-width: 0; font-weight: 800; }
+    .brand-icon {
+      display: grid; flex: 0 0 40px; width: 40px; height: 40px;
+      place-items: center; border-radius: 13px; color: white;
+      background: var(--orange);
+    }
+    .brand-icon svg { width: 23px; height: 23px; }
+    .brand-name { display: block; font-size: .83rem; line-height: 1.3; }
+    .brand-sub { display: block; margin-top: 3px; color: var(--muted); font-size: .7rem; font-weight: 600; }
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .hours-badge {
+      display: none; align-items: center; gap: 7px;
+      padding: 8px 10px; border-radius: 99px;
+      color: #9a3412; background: #fff7ed;
+      font-size: .76rem; font-weight: 800; white-space: nowrap;
+    }
+    .hours-badge svg { width: 16px; height: 16px; }
+    .header-phone { display: none; font-size: .9rem; font-weight: 800; white-space: nowrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      min-height: 50px; padding: 13px 18px;
+      border: 1px solid transparent; border-radius: 13px;
+      font: inherit; font-size: .94rem; font-weight: 800;
+      line-height: 1.25; text-align: center;
+      cursor: pointer;
+      transition: background .2s,transform .2s,box-shadow .2s;
+    }
+    .btn svg { width: 19px; height: 19px; flex: 0 0 auto; }
+    .btn-orange { color: white; background: var(--orange); box-shadow: 0 8px 18px rgba(234,88,12,.19); }
+    .btn-orange:hover { background: var(--orange-hover); transform: translateY(-2px); }
+    .btn-blue { color: var(--blue); background: #eff6ff; border-color: #dbeafe; }
+    .btn-blue:hover { background: #dbeafe; }
+    .btn-green { color: white; background: var(--green); }
+    .btn-green:hover { background: #166534; transform: translateY(-2px); }
+    .header-cta { min-height: 42px; padding: 10px 13px; font-size: .85rem; }
+    .hero {
+      padding: 54px 0 58px;
+      background:
+        radial-gradient(ellipse at 88% 14%,rgba(254,215,170,.45),transparent 36%),
+        radial-gradient(ellipse at 6% 80%,rgba(219,234,254,.55),transparent 34%),#fff;
+      overflow: hidden;
+    }
+    .hero-grid { display: grid; gap: 36px; align-items: center; }
+    .hero-lead { max-width: 680px; margin-bottom: 24px; color: var(--muted); font-size: 1.04rem; }
+    .hero-actions { display: grid; gap: 11px; max-width: 540px; }
+    .hero-actions .btn { min-height: 56px; }
+    .micro-trust { display: grid; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; }
+    .micro-trust li { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: .88rem; font-weight: 650; }
+    .check {
+      display: grid; width: 21px; height: 21px; flex: 0 0 21px;
+      place-items: center; border-radius: 50%; color: #166534; background: #dcfce7;
+    }
+    .check svg { width: 13px; height: 13px; }
+    .hero-art { position: relative; min-height: 290px; display: grid; place-items: center; isolation: isolate; }
+    .art-glow {
+      position: absolute; z-index: -2; width: min(86%,370px); aspect-ratio: 1;
+      border-radius: 50%; background: linear-gradient(145deg,#ffedd5,#dbeafe);
+    }
+    .art-ring {
+      position: absolute; z-index: -1; width: min(94%,410px); aspect-ratio: 1;
+      border: 1px solid rgba(37,99,235,.15); border-radius: 50%;
+    }
+    .art-ring::before,.art-ring::after {
+      content: ""; position: absolute; inset: 12%;
+      border: 1px dashed rgba(37,99,235,.19); border-radius: 50%;
+    }
+    .art-ring::after { inset: 25%; border-style: solid; }
+    .evening-card {
+      width: min(100%,390px); padding: 24px;
+      border: 1px solid rgba(255,255,255,.9); border-radius: 26px;
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 24px 60px rgba(15,23,42,.12);
+      transform: rotate(-1deg);
+    }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
+    .mini-brand { display: flex; align-items: center; gap: 9px; font-size: .85rem; font-weight: 850; }
+    .mini-brand span { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 11px; background: #fff7ed; font-size: 1.3rem; }
+    .live { display: inline-flex; align-items: center; gap: 7px; color: #166534; font-size: .73rem; font-weight: 800; }
+    .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 4px #dcfce7; }
+    .card-label { color: var(--muted); font-size: .85rem; font-weight: 700; }
+    .big-time { margin: 2px 0 10px; color: var(--orange); font-size: clamp(3.5rem,13vw,5.5rem); line-height: 1; font-weight: 900; letter-spacing: -.07em; }
+    .evening-card p { margin-bottom: 19px; color: var(--muted); font-size: .9rem; }
+    .card-hours { display: flex; align-items: center; gap: 10px; padding-top: 16px; border-top: 1px solid var(--line); font-size: .8rem; font-weight: 750; }
+    .card-hours svg { width: 19px; height: 19px; color: var(--blue); }
+    .trust-bar { padding: 19px 0; border-block: 1px solid var(--line); }
+    .trust-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 17px 12px; }
+    .trust-item { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .trust-emoji { display: grid; width: 42px; height: 42px; flex: 0 0 42px; place-items: center; border-radius: 13px; background: var(--surface); font-size: 1.3rem; }
+    .trust-item strong { display: block; font-size: .83rem; line-height: 1.3; }
+    .trust-item small { display: block; margin-top: 3px; color: var(--muted); font-size: .73rem; }
+    .services-grid { display: grid; gap: 16px; }
+    .service-card {
+      display: flex; flex-direction: column; min-height: 100%; padding: 24px;
+      border: 1px solid var(--line); border-radius: var(--radius);
+      background: #fff; box-shadow: 0 6px 20px rgba(15,23,42,.035);
+      transition: transform .22s,box-shadow .22s,border-color .22s;
+    }
+    .service-card:hover { transform: translateY(-5px); border-color: #fed7aa; box-shadow: var(--shadow); }
+    .service-icon {
+      display: grid; width: 58px; height: 58px; place-items: center;
+      margin-bottom: 20px; border-radius: 17px; background: #fff7ed; font-size: 1.8rem;
+    }
+    .service-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .service-card p { margin-bottom: 22px; color: var(--muted); font-size: .93rem; }
+    .service-link { display: inline-flex; align-items: center; gap: 7px; margin-top: auto; color: var(--blue); font-size: .91rem; font-weight: 800; }
+    .service-link svg { width: 17px; height: 17px; transition: transform .2s; }
+    .service-link:hover svg { transform: translateX(4px); }
+    .service-note { margin: 22px 0 0; padding: 15px 17px; border-radius: 14px; color: #7c2d12; background: #fff7ed; font-size: .9rem; }
+    .steps-grid { display: grid; gap: 24px; }
+    .step { position: relative; display: flex; gap: 15px; }
+    .step-number {
+      display: grid; width: 46px; height: 46px; flex: 0 0 46px; place-items: center;
+      border: 1px solid #fed7aa; border-radius: 15px;
+      color: var(--orange); background: #fff7ed; font-size: 1.05rem; font-weight: 900;
+    }
+    .step h3 { margin: 2px 0 7px; font-size: 1.04rem; }
+    .step p { margin: 0; color: var(--muted); font-size: .91rem; }
+    .advantages-grid { display: grid; gap: 14px; }
+    .advantage { padding: 21px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+    .advantage-head { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 8px; }
+    .advantage-icon {
+      display: grid; width: 43px; height: 43px; flex: 0 0 43px;
+      place-items: center; border-radius: 13px; color: var(--blue); background: #eff6ff;
+    }
+    .advantage-icon svg { width: 22px; height: 22px; }
+    .advantage h3 { margin: 2px 0 0; font-size: 1.02rem; }
+    .advantage p { margin: 0; color: var(--muted); font-size: .91rem; }
+    .faq-list { max-width: 820px; margin-inline: auto; display: grid; gap: 10px; }
+    .faq-item { overflow: clip; border: 1px solid var(--line); border-radius: 15px; background: #fff; }
+    .faq-item[open] { border-color: #bfdbfe; box-shadow: 0 5px 20px rgba(37,99,235,.06); }
+    .faq-item summary { position: relative; padding: 18px 48px 18px 18px; cursor: pointer; font-weight: 800; font-size: .96rem; list-style: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; position: absolute; top: 50%; right: 18px; transform: translateY(-50%); color: var(--blue); font-size: 1.45rem; font-weight: 500; }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 18px 19px; color: var(--muted); font-size: .93rem; }
+    .faq-answer p { margin: 0; }
+    .final-cta {
+      padding: 54px 0; color: #fff;
+      background: radial-gradient(ellipse at 95% 0%,rgba(249,115,22,.32),transparent 42%),#0f172a;
+    }
+    .final-inner { display: grid; gap: 24px; align-items: center; }
+    .final-cta h2 { margin-bottom: 12px; }
+    .final-cta p { max-width: 650px; margin-bottom: 0; color: #cbd5e1; }
+    .final-cta .eyebrow { color: #fdba74; }
+    .final-actions { display: grid; gap: 11px; }
+    .final-actions .btn { min-height: 55px; }
+    .footer { padding: 38px 0 100px; color: #e2e8f0; background: #080f1e; }
+    .footer-grid { display: grid; gap: 28px; }
+    .footer-brand { margin-bottom: 12px; color: #fff; }
+    .footer-description { max-width: 420px; margin: 12px 0 0; color: #94a3b8; font-size: .86rem; }
+    .footer-heading { margin: 0 0 10px; color: #94a3b8; font-size: .76rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+    .footer-line { display: flex; align-items: flex-start; gap: 10px; margin: 9px 0; color: #e2e8f0; font-size: .91rem; }
+    .footer-line svg { width: 18px; height: 18px; flex: 0 0 18px; margin-top: 3px; color: #fdba74; }
+    .footer-line a:hover { color: #fdba74; }
+    .footer-hours { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 9px 12px; border-radius: 10px; color: #fed7aa; background: rgba(234,88,12,.14); font-size: .83rem; font-weight: 800; }
+    .footer-seo { max-width: 780px; margin: 27px 0 0; color: #64748b; font-size: .76rem; }
+    .copyright { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(148,163,184,.16); color: #64748b; font-size: .77rem; }
+    .mobile-bar {
+      position: fixed; z-index: 30; right: 0; bottom: 0; left: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      padding: 9px 12px calc(9px + env(safe-area-inset-bottom));
+      border-top: 1px solid rgba(226,232,240,.9);
+      background: rgba(255,255,255,.97);
+      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    }
+    .mobile-bar .btn { min-height: 52px; padding: 11px 9px; border-radius: 12px; font-size: .92rem; }
+    .reveal { opacity: 1; transform: none; }
+    .js-motion .reveal { opacity: 0; transform: translateY(16px); transition: opacity .55s ease,transform .55s ease; }
+    .js-motion .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (min-width:480px) {
+      .container { width: min(1120px,calc(100% - 44px)); }
+      .header-phone { display: inline-block; }
+      .hero-actions { display: flex; flex-wrap: wrap; }
+      .hero-actions .btn { flex: 1 1 220px; }
+      .micro-trust { grid-template-columns: repeat(2,max-content); gap: 10px 18px; }
+      .services-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .steps-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 25px 20px; }
+      .final-actions { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (min-width:768px) {
+      .container { width: min(1120px,calc(100% - 56px)); }
+      .section { padding: 82px 0; }
+      .header-inner { min-height: 82px; }
+      .brand-icon { width: 44px; height: 44px; flex-basis: 44px; }
+      .brand-name { font-size: .91rem; }
+      .brand-sub { font-size: .74rem; }
+      .hours-badge { display: inline-flex; }
+      .header-right { gap: 17px; }
+      .hero { padding: 76px 0 72px; }
+      .hero-grid { grid-template-columns: minmax(0,1.25fr) minmax(300px,.75fr); gap: 28px; }
+      .hero-lead { font-size: 1.08rem; }
+      .hero-art { min-height: 390px; }
+      .evening-card { padding: 26px; }
+      .trust-grid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px; }
+      .trust-item { justify-content: center; }
+      .advantages-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+      .final-inner { grid-template-columns: minmax(0,1fr) minmax(300px,.75fr); gap: 42px; }
+      .final-actions { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; gap: 36px; }
+      .footer { padding-bottom: 36px; }
+      .mobile-bar { display: none; }
+    }
+    @media (min-width:1024px) {
+      .hero-grid { grid-template-columns: minmax(0,1.2fr) minmax(380px,.8fr); gap: 48px; }
+      .hero-art { min-height: 440px; }
+      .services-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+      .service-card { padding: 24px; }
+      .steps-grid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 22px; }
+      .step { display: block; }
+      .step-number { position: relative; z-index: 1; margin-bottom: 16px; }
+      .step:not(:last-child)::after {
+        content: ""; position: absolute; top: 22px; left: 58px; right: -22px;
+        border-top: 1px dashed #cbd5e1;
+      }
+      .final-actions { max-width: 360px; width: 100%; justify-self: end; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .js-motion .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Ремонт техники, Мусина, 71 — главная">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6l-3 3-3-3 3-3Z"/></svg>
+        </span>
+        <span>
+          <span class="brand-name">Ремонт техники · Мусина, 71</span>
+          <span class="brand-sub">Казань · без выходных</span>
+        </span>
+      </a>
+      <div class="header-right">
+        <span class="hours-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          Ежедневно до 23:00
+        </span>
+        <a class="header-phone" href="tel:+79370005614" aria-label="Позвонить по номеру +7 937 000-56-14">+7 937 000-56-14</a>
+        <a class="btn btn-orange header-cta" href="tel:+79370005614" aria-label="Позвонить в сервис">Позвонить</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Ремонт техники в Казани · ежедневно до 23:00</span>
+          <h1>Стиралка не сливает, бойлер холодный, духовка не греет? <em>Починим сегодня — работаем до 23:00, без выходных</em></h1>
+          <p class="hero-lead">Выезд мастера на дом в Казани в день обращения. Диагностика, согласование цены ДО ремонта и гарантия на работы. Три вида техники — один мастер, не нужно искать трёх разных.</p>
+          <div class="hero-actions">
+            <a class="btn btn-orange" href="tel:+79370005614" aria-label="Позвонить +7 937 000-56-14">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 3.18 2 2 0 0 1 4.08 1h3a2 2 0 0 1 2 1.72l.45 3.1a2 2 0 0 1-.57 1.7L7.1 9.38a16 16 0 0 0 6 6l1.86-1.86a2 2 0 0 1 1.7-.57l3.1.45A2 2 0 0 1 22 16.92Z"/></svg>
+              Позвонить +7 937 000-56-14
+            </a>
+            <a class="btn btn-blue" href="https://wa.me/79370005614?text=Здравствуйте!%20Пишу%20с%20вашего%20сайта%20по%20ремонту%20техники." target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.8 7.2L3 20l1.3-4.8A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 9.2c.5 2 2.3 3.8 4.3 4.3l1.2-1.2 2 .9c-.1 1-1 1.8-2 1.8-3.6-.2-6.7-3.3-6.9-6.9 0-1 .8-1.9 1.8-2l.9 2-1.3 1.1Z"/></svg>
+              Написать в WhatsApp
+            </a>
+          </div>
+          <ul class="micro-trust" aria-label="Преимущества сервиса">
+            <li><span class="check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m4 10 4 4 8-8"/></svg></span>Ежедневно 09:00–23:00</li>
+            <li><span class="check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m4 10 4 4 8-8"/></svg></span>Выезд в день обращения</li>
+            <li><span class="check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m4 10 4 4 8-8"/></svg></span>Гарантия на работы</li>
+          </ul>
+        </div>
+        <div class="hero-art reveal" aria-label="Сервис работает каждый день до позднего вечера">
+          <div class="art-glow" aria-hidden="true"></div>
+          <div class="art-ring" aria-hidden="true"></div>
+          <div class="evening-card">
+            <div class="card-top">
+              <div class="mini-brand"><span aria-hidden="true">🛠️</span><span>Ремонт техники</span></div>
+              <span class="live">На связи</span>
+            </div>
+            <div class="card-label">Сломалась вечером?</div>
+            <div class="big-time">до 23:00</div>
+            <p>Мы ещё на связи. Обсудим неисправность и согласуем следующий шаг сегодня.</p>
+            <div class="card-hours">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              Ежедневно с 09:00 до 23:00 · без выходных
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-bar" aria-label="Преимущества">
+      <div class="container trust-grid">
+        <div class="trust-item"><span class="trust-emoji" aria-hidden="true">🕘</span><div><strong>До 23:00 каждый день</strong><small>Без выходных</small></div></div>
+        <div class="trust-item"><span class="trust-emoji" aria-hidden="true">🏠</span><div><strong>Выезд на дом</strong><small>По Казани</small></div></div>
+        <div class="trust-item"><span class="trust-emoji" aria-hidden="true">🛡️</span><div><strong>Гарантия на работы</strong><small>Условия фиксируем</small></div></div>
+        <div class="trust-item"><span class="trust-emoji" aria-hidden="true">₽</span><div><strong>Цена до ремонта</strong><small>Согласуем заранее</small></div></div>
+      </div>
+    </section>
+
+    <section class="section soft" id="services">
+      <div class="container">
+        <div class="heading reveal">
+          <span class="eyebrow">Основные направления</span>
+          <h2>Что ремонтируем</h2>
+          <p>Обсудим неисправность, уточним детали и согласуем следующий шаг. Принимаем обращения ежедневно до 23:00.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">🧺</div>
+            <h3>Стиральные машины</h3>
+            <p>Не сливает, не отжимает, шумит, не запускается, ошибки на дисплее. Найдём причину и устраним.</p>
+            <a class="service-link" href="https://wa.me/79370005614?text=Здравствуйте!%20Пишу%20с%20вашего%20сайта%20по%20ремонту%20техники." target="_blank" rel="noopener noreferrer">Обсудить ремонт <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">♨️</div>
+            <h3>Бойлеры и водонагреватели</h3>
+            <p>Не греет, течёт, накипь, сгорел ТЭН, проблемы с электроникой. Вернём горячую воду.</p>
+            <a class="service-link" href="https://wa.me/79370005614?text=Здравствуйте!%20Пишу%20с%20вашего%20сайта%20по%20ремонту%20техники." target="_blank" rel="noopener noreferrer">Обсудить ремонт <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">🔥</div>
+            <h3>Духовки и варочные панели</h3>
+            <p>Не нагревается, не держит температуру, не работают конфорки/гриль, сбои управления.</p>
+            <a class="service-link" href="https://wa.me/79370005614?text=Здравствуйте!%20Пишу%20с%20вашего%20сайта%20по%20ремонту%20техники." target="_blank" rel="noopener noreferrer">Обсудить ремонт <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">➕</div>
+            <h3>Другая бытовая техника</h3>
+            <p>Посудомойки, микроволновки и мелкая техника — напишите, опишем ситуацию и скажем, берёмся ли.</p>
+            <a class="service-link" href="https://wa.me/79370005614?text=Здравствуйте!%20Пишу%20с%20вашего%20сайта%20по%20ремонту%20техники." target="_blank" rel="noopener noreferrer">Обсудить ремонт <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+        </div>
+        <p class="service-note reveal"><strong>Работаем без выходных:</strong> ежедневно с 09:00 до 23:00. Позвоните или напишите — уточним возможность выезда.</p>
+      </div>
+    </section>
+
+    <section class="section" id="steps">
+      <div class="container">
+        <div class="heading reveal">
+          <span class="eyebrow">Понятный процесс</span>
+          <h2>Как проходит ремонт — 4 понятных шага</h2>
+          <p>Вы заранее знаете, что будет происходить и когда обсуждается стоимость.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step reveal"><div class="step-number" aria-hidden="true">1</div><div><h3>Заявка по телефону или в WhatsApp</h3><p>Опишите симптом и сообщите, какая техника сломалась. Принимаем обращения ежедневно до 23:00.</p></div></article>
+          <article class="step reveal"><div class="step-number" aria-hidden="true">2</div><div><h3>Выезд и диагностика</h3><p>Мастер осматривает технику на месте и определяет возможную причину неисправности.</p></div></article>
+          <article class="step reveal"><div class="step-number" aria-hidden="true">3</div><div><h3>Согласование цены</h3><p>Обсуждаем стоимость до начала ремонта — без неожиданных доплат за несогласованные работы.</p></div></article>
+          <article class="step reveal"><div class="step-number" aria-hidden="true">4</div><div><h3>Ремонт и гарантия</h3><p>Выполняем согласованные работы, проверяем результат и фиксируем условия гарантии.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="advantages">
+      <div class="container">
+        <div class="heading reveal">
+          <span class="eyebrow">Спокойствие на каждом этапе</span>
+          <h2>Почему нас выбирают</h2>
+          <p>Понятные условия, ответственность за работу и возможность обратиться после обычного рабочего дня.</p>
+        </div>
+        <div class="advantages-grid">
+          <article class="advantage reveal">
+            <div class="advantage-head"><span class="advantage-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Работаем до 23:00, когда все закрыты</h3></div>
+            <p>Техника ломается вечером и в выходные. Мы на связи в это время — не нужно откладывать обращение до утра.</p>
+          </article>
+          <article class="advantage reveal">
+            <div class="advantage-head"><span class="advantage-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 9h.01M15 9h.01"/></svg></span><h3>Три направления в одном месте</h3></div>
+            <p>Стиральная машина, бойлер и духовка — не нужно искать трёх разных мастеров по городу.</p>
+          </article>
+          <article class="advantage reveal">
+            <div class="advantage-head"><span class="advantage-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3>Честно про цену</h3></div>
+            <p>Сначала диагностика и согласование стоимости, затем ремонт. Не навязываем лишнего и не начинаем без согласия.</p>
+          </article>
+          <article class="advantage reveal">
+            <div class="advantage-head"><span class="advantage-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Гарантия и ответственность</h3></div>
+            <p>Фиксируем гарантию на выполненную работу и остаёмся на связи после ремонта.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="heading reveal">
+          <span class="eyebrow">Отвечаем заранее</span>
+          <h2>Частые вопросы</h2>
+          <p>Не нашли ответ? Позвоните или напишите в WhatsApp. Мы на связи ежедневно до 23:00.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>Сколько стоит выезд и диагностика?</summary>
+            <div class="faq-answer"><p>Стоимость диагностики озвучиваем при заявке; если соглашаетесь на ремонт — диагностика обычно входит в работу.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Вы приедете сегодня, если я позвоню вечером?</summary>
+            <div class="faq-answer"><p>Да, мы работаем ежедневно до 23:00, приём заявок идёт до конца рабочего дня. Возможность и время выезда согласуем при обращении.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Даёте ли гарантию?</summary>
+            <div class="faq-answer"><p>Да, на выполненные работы предоставляем гарантию, условия фиксируем.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Выезжаете по всей Казани?</summary>
+            <div class="faq-answer"><p>Работаем по Казани; точный адрес и район уточните по телефону или в WhatsApp — подтвердим возможность выезда.</p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>А если не получится починить?</summary>
+            <div class="faq-answer"><p>Честно скажем об этом до начала или в процессе и не возьмём деньги за ненужную работу.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container final-inner">
+        <div class="reveal">
+          <span class="eyebrow">Не ждите до утра</span>
+          <h2>Техника сломалась? Не ждите утра — позвоните сейчас</h2>
+          <p>Проконсультируем и согласуем выезд в тот же день. Работаем до 23:00, ежедневно.</p>
+        </div>
+        <div class="final-actions reveal">
+          <a class="btn btn-orange" href="tel:+79370005614" aria-label="Позвонить +7 937 000-56-14">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 3.18 2 2 0 0 1 4.08 1h3a2 2 0 0 1 2 1.72l.45 3.1a2 2 0 0 1-.57 1.7L7.1 9.38a16 16 0 0 0 6 6l1.86-1.86a2 2 0 0 1 1.7-.57l3.1.45A2 2 0 0 1 22 16.92Z"/></svg>
+            Позвонить +7 937 000-56-14
+          </a>
+          <a class="btn btn-green" href="https://wa.me/79370005614?text=Здравствуйте!%20Пишу%20с%20вашего%20сайта%20по%20ремонту%20техники." target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.8 7.2L3 20l1.3-4.8A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 9.2c.5 2 2.3 3.8 4.3 4.3l1.2-1.2 2 .9c-.1 1-1 1.8-2 1.8-3.6-.2-6.7-3.3-6.9-6.9 0-1 .8-1.9 1.8-2l.9 2-1.3 1.1Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#top" aria-label="Ремонт техники, Мусина, 71 — главная">
+            <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6l-3 3-3-3 3-3Z"/></svg></span>
+            <span class="brand-name">Ремонт техники · Мусина, 71</span>
+          </a>
+          <p class="footer-description">Ремонт стиральных машин, бойлеров и духовок в Казани. Обращайтесь ежедневно — мы на связи с 09:00 до 23:00, без выходных.</p>
+          <span class="footer-hours">🕘 Ежедневно · 09:00–23:00</span>
+        </div>
+        <div>
+          <h2 class="footer-heading">Контакты</h2>
+          <div class="footer-line"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 5-9 12-9 12S3 15 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Казань, ул. Мусина, 71</span></div>
+          <div class="footer-line"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 3.18 2 2 0 0 1 4.08 1h3a2 2 0 0 1 2 1.72l.45 3.1a2 2 0 0 1-.57 1.7L7.1 9.38a16 16 0 0 0 6 6l1.86-1.86a2 2 0 0 1 1.7-.57l3.1.45A2 2 0 0 1 22 16.92Z"/></svg><a href="tel:+79370005614">+7 937 000-56-14</a></div>
+          <div class="footer-line"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Ежедневно 09:00–23:00, без выходных</span></div>
+        </div>
+        <div>
+          <h2 class="footer-heading">Мы на карте</h2>
+          <p class="footer-description" style="margin-top:0;margin-bottom:14px">Откройте карточку сервиса в Яндекс.Картах, чтобы посмотреть расположение.</p>
+          <div class="footer-line"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/></svg><a href="https://yandex.ru/maps/org/235600452206" target="_blank" rel="noopener noreferrer">Открыть на Яндекс.Картах ↗</a></div>
+        </div>
+      </div>
+      <p class="footer-seo">Ремонт стиральных машин, бойлеров и духовок в Казани с выездом мастера на дом. Принимаем заявки ежедневно, выезд до 23:00 — согласуем стоимость до начала ремонта.</p>
+      <div class="copyright">© 2026 · Ремонт техники · Мусина, 71</div>
+    </div>
+  </footer>
+
+  <nav class="mobile-bar" aria-label="Быстрая связь">
+    <a class="btn btn-orange" href="tel:+79370005614" aria-label="Позвонить в сервис">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 3.18 2 2 0 0 1 4.08 1h3a2 2 0 0 1 2 1.72l.45 3.1a2 2 0 0 1-.57 1.7L7.1 9.38a16 16 0 0 0 6 6l1.86-1.86a2 2 0 0 1 1.7-.57l3.1.45A2 2 0 0 1 22 16.92Z"/></svg>
+      Позвонить
+    </a>
+    <a class="btn btn-green" href="https://wa.me/79370005614?text=Здравствуйте!%20Пишу%20с%20вашего%20сайта%20по%20ремонту%20техники." target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.8 7.2L3 20l1.3-4.8A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 9.2c.5 2 2.3 3.8 4.3 4.3l1.2-1.2 2 .9c-.1 1-1 1.8-2 1.8-3.6-.2-6.7-3.3-6.9-6.9 0-1 .8-1.9 1.8-2l.9 2-1.3 1.1Z"/></svg>
+      WhatsApp
+    </a>
+  </nav>
+
+  <script>
+    (() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const items = document.querySelectorAll(".reveal");
+      if (reduceMotion || !("IntersectionObserver" in window)) return;
+      document.documentElement.classList.add("js-motion");
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -24px 0px" });
+      items.forEach(item => observer.observe(item));
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ремонт стиральных машин, бойлеров и духовок",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Мусина, 71",
+      "addressLocality": "Казань",
+      "addressRegion": "Татарстан",
+      "addressCountry": "RU"
+    },
+    "telephone": "+79370005614",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 55.838278,
+      "longitude": 49.120140
+    },
+    "url": "https://yandex.ru/maps/org/235600452206",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "09:00",
+      "closes": "23:00"
+    },
+    "priceRange": "¥¥",
+    "areaServed": {
+      "@type": "City",
+      "name": "Казань"
+    }
+  }
+  </script>
+</body>
+</html>
